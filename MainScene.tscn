@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://songbook.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 614.0
+margin_bottom = 599.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+margin_left = -2.0
+margin_top = 1.0
+margin_right = 175.0
+margin_bottom = 252.0
+
+[node name="Button_save" type="Button" parent="Control/VBoxContainer"]
+margin_right = 177.0
+margin_bottom = 20.0
+text = "Save"
+
+[node name="Button_remove" type="Button" parent="Control/VBoxContainer"]
+margin_top = 24.0
+margin_right = 177.0
+margin_bottom = 44.0
+text = "Remove"
+
+[node name="List" type="ItemList" parent="Control/VBoxContainer"]
+margin_top = 48.0
+margin_right = 177.0
+margin_bottom = 48.0
+
+[node name="TabText" type="TextEdit" parent="Control/VBoxContainer"]
+margin_top = 52.0
+margin_right = 177.0
+margin_bottom = 52.0
+
+[connection signal="pressed" from="Control/VBoxContainer/Button_save" to="Control" method="_on_Button_save_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button_remove" to="Control" method="_on_Button_remove_pressed"]
+[connection signal="item_selected" from="Control/VBoxContainer/List" to="Control" method="_on_ItemList_item_selected"]
+[connection signal="focus_entered" from="Control/VBoxContainer/TabText" to="Control" method="_on_TextEdit_focus_entered"]
